@@ -11,4 +11,4 @@ RUN git clone https://github.com/NastyGamer/DocumentaryDL
 WORKDIR /DocumentaryDL
 RUN mvn package
 
-ENTRYPOINT ["java", "-server", "-jar", "target/consoleApp-1.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-server", "-jar", "target/documentary-dl-1.0-SNAPSHOT.jar"]
