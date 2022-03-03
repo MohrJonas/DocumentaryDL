@@ -1,5 +1,7 @@
 FROM bellsoft/liberica-openjdk-alpine:11
 
+MAINTAINER Jonas Mohr
+
 RUN apk add --no-cache git maven ffmpeg python3 py3-pip curl gcc musl-dev
 RUN python3 -m pip install -U yt-dlp
 

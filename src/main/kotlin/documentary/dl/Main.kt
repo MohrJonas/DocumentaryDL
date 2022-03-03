@@ -9,17 +9,19 @@ import it.sauronsoftware.cron4j.Scheduler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import mu.KotlinLogging
 import org.http4k.client.ApacheClient
 import org.http4k.core.Method
 import org.http4k.core.Request
 import java.nio.file.Path
 
+private val logger = KotlinLogging.logger {  }
 private val client = ApacheClient()
 private val request = Request(Method.GET, "https://www.reddit.com/r/Documentaries/top.json?t=day")
 
 fun main() {
     val scheduler = Scheduler()
-    scheduler.schedule("32 0 * * *") {
+    scheduler.schedule("25 12 * * *") {
         val backoffStrat = StrategyBackoff<List<String>>(10, ConstantStrategy(300000L), ::nonFatal) {
             it.isNotEmpty()
         }
