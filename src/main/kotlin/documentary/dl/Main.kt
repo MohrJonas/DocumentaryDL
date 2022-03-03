@@ -30,7 +30,7 @@ fun main() {
         }
     }
     val scheduler = Scheduler()
-    scheduler.schedule("43 14 * * *") {
+    scheduler.schedule("0 0 * * *") {
         val backoffStrat = StrategyBackoff<List<String>>(10, ConstantStrategy(300000L), ::nonFatal) {
             it.isNotEmpty()
         }
