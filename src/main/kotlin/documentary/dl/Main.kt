@@ -19,7 +19,7 @@ private val request = Request(Method.GET, "https://www.reddit.com/r/Documentarie
 
 fun main() {
     val scheduler = Scheduler()
-    scheduler.schedule("0 0 * * *") {
+    scheduler.schedule("32 0 * * *") {
         val backoffStrat = StrategyBackoff<List<String>>(10, ConstantStrategy(300000L), ::nonFatal) {
             it.isNotEmpty()
         }
