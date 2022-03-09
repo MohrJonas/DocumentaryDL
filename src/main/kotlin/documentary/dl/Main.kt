@@ -63,7 +63,7 @@ private fun parseLinks(): List<String> {
         .get("children").asArray()
         .map { it.asObject().get("data").asObject() }
         .filter {
-            it.getString("post_hint", String()) == "rich:video" && it.getString("domain", String()) == "youtube.com"
+            it.getString("post_hint", String()) == "rich:video" && it.getString("domain", String()).contains("youtu")
         }
         .map { it.get("url_overridden_by_dest").asString() }
         .take(5)
