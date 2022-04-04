@@ -83,7 +83,7 @@ private suspend fun downloadVideo(url: String, folder: Path) {
     withContext(Dispatchers.IO) {
         ProcessBuilder()
             .directory(folder.toFile())
-            .command("yt-dlp", "--remux-video", "mp4", "--format-sort", "res:1080", url)
+            .command("yt-dlp", "--remux-video", "mp4", "--format-sort", "res:1080", "--sponsorblock-remove", "default", url)
             .inheritIO()
             .start()
             .waitFor()
